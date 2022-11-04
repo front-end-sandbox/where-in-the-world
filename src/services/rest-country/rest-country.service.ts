@@ -1,12 +1,9 @@
-import {
-  CountryPreviewDTM,
-  CountryPreviewContract,
-} from "./rest-country.types"
+import { CountryPreviewDTM, CountryContract } from "types"
 
 export class RestCountryService {
   private baseURL = "https://restcountries.com/v2"
 
-  public getCountryPreview = (country: CountryPreviewContract): CountryPreviewDTM => ({
+  public getCountryPreview = (country: CountryContract): CountryPreviewDTM => ({
     name: country.name,
     population: country.population,
     region: country.region,

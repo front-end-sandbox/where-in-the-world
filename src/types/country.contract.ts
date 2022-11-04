@@ -1,20 +1,4 @@
-export interface CountryPreviewDTM {
-  name: string
-  population: number
-  region: string
-  capital: string
-}
-
-export interface CountryDTM extends CountryPreviewDTM {
-  nativeName: string
-  subRegion: string
-  topLevelDomain: string[]
-  currencies: string[]
-  languages: string[]
-  borderCountries: string[]
-}
-
-export interface CountryPreviewContract {
+export interface CountryContract {
   alpha2Code: string
   alpha3Code: string
   altSpellings: string[]

@@ -1,15 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-import { CountryDTM } from "store/services"
+import { CountryDTM } from "types"
 
 import { CountriesState } from "./countries.types"
 
-const countriesSlice = createSlice({
-  name: "auth",
-  initialState: {
-    isLoading: true,
-    countries: [],
-  } as CountriesState,
+const initialState: CountriesState = {
+  isLoading: true,
+  countries: [],
+}
+
+export const countriesStore = createSlice({
+  name: "countries",
+  initialState,
   reducers: {
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload
@@ -20,6 +22,5 @@ const countriesSlice = createSlice({
   }
 })
 
-export const { setLoading, setCountries } = countriesSlice.actions
-
-export const countriesReducer = countriesSlice.reducer
+export const countriesActions = countriesStore.actions;
+export const countriesReducer = countriesStore.reducer;
