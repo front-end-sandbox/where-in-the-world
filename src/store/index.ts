@@ -1,24 +1,15 @@
-import { configureStore } from "@reduxjs/toolkit"
+import { countriesPreviewSelectors, countriesPreviewActions } from "./countries-preview";
 
-import { countriesReducer, countriesSelectors, countriesActions } from "./countries"
+import { countrySelectors, countryActions } from "./country";
 
 export const actions = {
-  countries: countriesActions,
-}
+  countriesPreview: countriesPreviewActions,
+  country: countryActions,
+};
 
 export const selectors = {
-  countries: countriesSelectors,
-}
+  countriesPreview: countriesPreviewSelectors,
+  country: countrySelectors,
+};
 
-export const reducers = {
-  countries: countriesReducer,
-}
-
-const store = configureStore({
-  reducer: {
-    countries: countriesReducer,
-  },
-})
-
-export type RootState = ReturnType<typeof store.getState>
-export default store
+export * from "./store";

@@ -1,21 +1,12 @@
-import React from "react"
+import { Navigate, Route, Routes } from "react-router-dom";
 
-import { useCountries } from "hooks"
+import { CountriesPage } from "pages/countries";
+import { CountryPage } from "pages/country";
 
-export const App = () => {
-  const { isLoading, countries } = useCountries()
-
-  if (isLoading) {
-    return (
-      <div>
-        Loading...
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      {countries.map(country => country.name)}
-    </div>
-  )
-}
+export const App = () => (
+  <Routes>
+    <Route index element={<Navigate to="countries" />} />
+    <Route path="countries" element={<CountriesPage />} />
+    <Route path="country/:countryName" element={<CountryPage />} />
+  </Routes>
+);
